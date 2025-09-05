@@ -1,26 +1,182 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Updated to futuristic neon theme with cyan primary and fuchsia accent */
+  --background: oklch(0.05 0 0); /* Deep black background */
+  --foreground: oklch(0.98 0 0); /* Pure white text */
+  --card: oklch(0.08 0 0); /* Dark card background */
+  --card-foreground: oklch(0.98 0 0); /* White text on cards */
+  --popover: oklch(0.08 0.02 0); /* Dark popover with slight tint */
+  --popover-foreground: oklch(0.98 0 0); /* White text in popovers */
+  --primary: oklch(0.7 0.15 195); /* Cyan primary (#00bcd4) */
+  --primary-foreground: oklch(0.05 0 0); /* Black text on primary */
+  --secondary: oklch(0.55 0.25 320); /* Fuchsia secondary (#d5006d) */
+  --secondary-foreground: oklch(0.98 0 0); /* White text on secondary */
+  --muted: oklch(0.4 0.02 240); /* Muted blue-gray */
+  --muted-foreground: oklch(0.7 0.05 195); /* Muted cyan text */
+  --accent: oklch(0.75 0.2 140); /* Green accent (#00e676) */
+  --accent-foreground: oklch(0.05 0 0); /* Black text on accent */
+  --destructive: oklch(0.55 0.2 25); /* Red destructive */
+  --destructive-foreground: oklch(0.98 0 0); /* White text on destructive */
+  --border: oklch(0.2 0.05 195); /* Subtle cyan border */
+  --input: oklch(0.08 0.02 195); /* Dark input with cyan tint */
+  --ring: oklch(0.7 0.15 195 / 0.5); /* Cyan focus ring */
+  --chart-1: oklch(0.7 0.15 195); /* Cyan chart color */
+  --chart-2: oklch(0.55 0.25 320); /* Fuchsia chart color */
+  --chart-3: oklch(0.75 0.2 140); /* Green chart color */
+  --chart-4: oklch(0.8 0.15 85); /* Yellow chart color */
+  --chart-5: oklch(0.75 0.2 60); /* Orange chart color */
+  --radius: 0.75rem; /* Slightly larger radius for futuristic feel */
+  --sidebar: oklch(0.08 0 0); /* Dark sidebar */
+  --sidebar-foreground: oklch(0.98 0 0); /* White sidebar text */
+  --sidebar-primary: oklch(0.7 0.15 195); /* Cyan sidebar primary */
+  --sidebar-primary-foreground: oklch(
+    0.05 0 0
+  ); /* Black text on sidebar primary */
+  --sidebar-accent: oklch(0.55 0.25 320); /* Fuchsia sidebar accent */
+  --sidebar-accent-foreground: oklch(
+    0.98 0 0
+  ); /* White text on sidebar accent */
+  --sidebar-border: oklch(0.2 0.05 195); /* Cyan sidebar border */
+  --sidebar-ring: oklch(0.7 0.15 195 / 0.5); /* Cyan sidebar focus ring */
+}
+
+.dark {
+  /* Dark mode uses same futuristic theme - no changes needed as we're already dark */
+  --background: oklch(0.05 0 0);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.08 0 0);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.08 0.02 0);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.7 0.15 195);
+  --primary-foreground: oklch(0.05 0 0);
+  --secondary: oklch(0.55 0.25 320);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.4 0.02 240);
+  --muted-foreground: oklch(0.7 0.05 195);
+  --accent: oklch(0.75 0.2 140);
+  --accent-foreground: oklch(0.05 0 0);
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.2 0.05 195);
+  --input: oklch(0.08 0.02 195);
+  --ring: oklch(0.7 0.15 195 / 0.5);
+  --chart-1: oklch(0.7 0.15 195);
+  --chart-2: oklch(0.55 0.25 320);
+  --chart-3: oklch(0.75 0.2 140);
+  --chart-4: oklch(0.8 0.15 85);
+  --chart-5: oklch(0.75 0.2 60);
+  --sidebar: oklch(0.08 0 0);
+  --sidebar-foreground: oklch(0.98 0 0);
+  --sidebar-primary: oklch(0.7 0.15 195);
+  --sidebar-primary-foreground: oklch(0.05 0 0);
+  --sidebar-accent: oklch(0.55 0.25 320);
+  --sidebar-accent-foreground: oklch(0.98 0 0);
+  --sidebar-border: oklch(0.2 0.05 195);
+  --sidebar-ring: oklch(0.7 0.15 195 / 0.5);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Added custom neon glow animations for futuristic theme */
+@keyframes neon-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 5px currentColor, 0 0 10px currentColor,
+      0 0 15px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 10px currentColor, 0 0 20px currentColor,
+      0 0 30px currentColor;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.neon-glow {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.matrix-char {
+  animation: matrix-rain 3s linear infinite;
 }
